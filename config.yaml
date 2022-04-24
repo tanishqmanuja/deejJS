@@ -1,0 +1,17 @@
+slider_mapping:
+  '0':
+    - valorant-win64-shipping.exe
+    - rocketleague.exe
+    - gta_sa.exe
+    - HD-Player.exe
+    - vlc.exe
+  # '1':
+  #   - opera.exe
+  #   - msedge.exe
+  '2': chrome.exe
+  '3': discord.exe
+  '4': master
+invert_sliders: false
+com_port: COM3
+baud_rate: 9600
+noise_reduction: default
