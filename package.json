@@ -1,6 +1,6 @@
 {
   "name": "deejjs",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "deej build with js",
   "engines": {
     "node": ">= 16.13 <17"
