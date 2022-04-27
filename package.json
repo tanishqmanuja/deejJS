@@ -16,17 +16,16 @@
     "build": "tsc -p tsconfig.json",
     "build:watch": "tsc -w -p tsconfig.json",
     "build:release": "npm run clean && tsc -p tsconfig.release.json",
-    "esbuild-node": "esbuild src/main.ts --bundle --platform=node --minify --sourcemap=external --outfile=dist/esbuild/main.js",
-    "esbuild-node:dev": "esbuild src/main.ts --bundle --platform=node --sourcemap=external --outfile=dist/esbuild/main.js",
-    "esbuild-node:watch": "esbuild src/main.ts --bundle --platform=node --watch --sourcemap=external --outfile=dist/esbuild/main.js",
-    "package": "tsc -p tsconfig.json && pkg ."
+    "package": "tsc -p tsconfig.json && pkg .",
+    "package:nc": "create-nodew-exe dist/pkg/deejjs.exe dist/pkg/deejjs-nc.exe "
   },
   "pkg": {
     "scripts": [
       "dist/tsc/**/*.js"
     ],
     "assets": [
-      "node_modules/@serialport/bindings-cpp"
+      "node_modules/@serialport/bindings-cpp",
+      "node_modules/systray2/traybin/tray_windows_release.exe"
     ],
     "targets": [
       "node16-win-x64"
@@ -35,9 +34,10 @@
   },
   "devDependencies": {
     "@types/node": "~16.11",
+    "@types/signal-exit": "^3.0.1",
     "@typescript-eslint/eslint-plugin": "~5.14",
     "@typescript-eslint/parser": "~5.14",
-    "esbuild": "^0.14.38",
+    "create-nodew-exe": "^1.0.10",
     "eslint": "~8.11",
     "eslint-config-prettier": "~8.5",
     "pkg": "^5.6.0",
@@ -49,10 +49,13 @@
   },
   "dependencies": {
     "node-audio-volume-mixer": "^1.0.3",
+    "node-hide-console-window": "^2.1.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.5.5",
     "serialport": "^10.4.0",
+    "signal-exit": "^3.0.7",
     "simzip": "github:Glazy/simzip",
+    "systray2": "^2.1.4",
     "tslib": "~2.3.1",
     "tsyringe": "^4.6.0",
     "winston": "^3.7.2",

@@ -12,6 +12,6 @@ slider_mapping:
   '3': discord.exe
   '4': master
 invert_sliders: false
-com_port: COM3
+com_port: COM4
 baud_rate: 9600
 noise_reduction: default

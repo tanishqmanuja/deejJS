@@ -19,7 +19,8 @@
     "noImplicitThis": false,
     "strictNullChecks": false,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "esModuleInterop": true
   },
   "include": ["src/**/*"]
 }
