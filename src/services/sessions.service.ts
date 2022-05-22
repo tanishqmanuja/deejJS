@@ -1,3 +1,4 @@
+import SoundMixer, { Device, DeviceType } from 'native-sound-mixer';
 import { NodeAudioVolumeMixer } from 'node-audio-volume-mixer';
 import {
   BehaviorSubject,
@@ -16,7 +17,6 @@ import { objectMap } from '../utils/object.util';
 import { selectDistinctState } from '../utils/rxjs.util';
 import { ConfigService } from './config.service';
 import { SliderChangeEvent, SliderService } from './slider.service';
-import SoundMixer, { Device, DeviceType } from 'native-sound-mixer';
 interface Session {
   pid: number;
   name: string;

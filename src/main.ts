@@ -1,5 +1,8 @@
+import 'dotenv/config';
+import SoundMixer from 'native-sound-mixer';
 import { hideConsole } from 'node-hide-console-window';
 import 'reflect-metadata';
+import onExit from 'signal-exit';
 import { container } from 'tsyringe';
 import { logger } from './logger/logger';
 import { ConfigService } from './services/config.service';
@@ -7,9 +10,6 @@ import { SerialService } from './services/serial.service';
 import { SessionsService } from './services/sessions.service';
 import { SliderService } from './services/slider.service';
 import { systray } from './systray/systray';
-import onExit from 'signal-exit';
-import SoundMixer from 'native-sound-mixer';
-import 'dotenv/config';
 
 systray
   .ready()

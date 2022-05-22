@@ -1,9 +1,9 @@
-import SysTray, { MenuItem } from 'systray2';
+import { hideConsole, showConsole } from 'node-hide-console-window';
 import { platform } from 'os';
-import { iconDarwinLinux, iconWin } from './icons';
-import { showConsole, hideConsole } from 'node-hide-console-window';
+import SysTray, { MenuItem } from 'systray2';
 import { container } from 'tsyringe';
 import { SerialService } from '../services/serial.service';
+import { iconDarwinLinux, iconWin } from './icons';
 
 const serialService = container.resolve(SerialService);
 
