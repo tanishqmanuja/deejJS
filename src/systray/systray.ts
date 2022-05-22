@@ -57,8 +57,8 @@ export const systray = new SysTray({
   menu: {
     icon: platform() === 'win32' ? iconWin : iconDarwinLinux,
     isTemplateIcon: platform() === 'darwin',
-    title: 'Deej',
-    tooltip: 'Deej',
+    title: 'VolCtrl',
+    tooltip: 'VolCtrl',
     items: [
       rescanPortMenuItem,
       enableConsoleMenuItem,

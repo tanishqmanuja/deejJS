@@ -31,12 +31,12 @@ container.resolve(SerialService);
 container.resolve(SliderService);
 container.resolve(SessionsService);
 
-logger.info('INIT | DeejJS');
+logger.info('INIT | App');
 console.log(
   'System devices:',
   SoundMixer.devices.map((d) => d.name),
 );
 
 onExit(() => {
-  logger.info('EXIT | DeejJS');
+  logger.info('EXIT | App');
 });

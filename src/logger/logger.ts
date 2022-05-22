@@ -18,7 +18,7 @@ export const logger = createLogger({
         splat(),
         logFormat,
       ),
-      filename: 'logs/deej.log',
+      filename: 'logs/app.log',
     }),
   ],
 });
