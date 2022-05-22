@@ -85,8 +85,11 @@ export class SerialService {
     }),
     retry({
       resetOnSuccess: true,
-      delay: (_err, retryCount) =>
-        timer(Math.min(1000 * 60, 1000 * 2 ** retryCount)),
+      delay: (_err, retryCount) => {
+        const retryTime = Math.min(1000 * 60, 1000 * 2 ** retryCount);
+        logger.verbose(`Retry After ${retryTime / 1000}s`);
+        return timer(retryTime);
+      },
     }),
   );
 

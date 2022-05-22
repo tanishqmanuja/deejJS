@@ -10,8 +10,9 @@ slider_mapping:
   #   - msedge.exe
   '2': chrome.exe
   '3': discord.exe
+  # '4': Headphone (Realtek(R) Audio)
   '4': master
 invert_sliders: false
-com_port: COM4
+com_port: COM3
 baud_rate: 9600
 noise_reduction: default

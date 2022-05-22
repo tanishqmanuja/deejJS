@@ -1,12 +1,5 @@
 import { watch } from 'fs';
-import {
-  BehaviorSubject,
-  debounceTime,
-  fromEvent,
-  merge,
-  Subject,
-  tap,
-} from 'rxjs';
+import { BehaviorSubject, debounceTime, fromEvent, merge, tap } from 'rxjs';
 import { singleton } from 'tsyringe';
 import { logger } from '../logger/logger';
 import { readYAML } from '../utils/file.util';
@@ -49,7 +42,6 @@ export type IConfig = Readonly<ICanonicalConfig & Partial<IExperimentalConfig>>;
 
 @singleton()
 export class ConfigService {
-  private canonicalConfigSubject = new Subject<ICanonicalConfig>();
   private configSubject = new BehaviorSubject<IConfig>({
     ...this.readConfig('canonical'),
     ...this.readConfig('experimental'),
@@ -60,11 +52,22 @@ export class ConfigService {
     'change',
   ).pipe(
     debounceTime(FILE_CHANGE_DEBOUNCE_TIME),
-    tap(() => this.canonicalConfigSubject.next(this.readConfig('canonical'))),
+    tap(() =>
+      this.configSubject.next({
+        ...this.configSubject.value,
+        ...this.readConfig('canonical'),
+      }),
+    ),
+    tap(() => {
+      logger.info('Config file changed');
+    }),
   );
 
   readonly config$ = this.configSubject.asObservable();
-  readonly config = this.configSubject.value;
+
+  get config() {
+    return this.configSubject.value;
+  }
 
   constructor() {
     logger.info('INIT | ConfigService');
