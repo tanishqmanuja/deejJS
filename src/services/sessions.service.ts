@@ -151,7 +151,7 @@ export class SessionsService {
       if (mic) {
         mic.volume = volumeLevel;
       }
-    } else if (!(targetSessionName.substring(-4) === '.exe')) {
+    } else if (!(targetSessionName.slice(-4) === '.exe')) {
       const devices: Device[] = SoundMixer.devices;
       const device = devices.find((d) => d.name === targetSessionName);
       if (device) {
